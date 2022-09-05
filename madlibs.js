@@ -11,6 +11,13 @@ let madLibsArray = myMadLibs.split(' ');
 console.log(madLibsArray);
 
 
+function randomWord(type){
+     let randomNum = Math.floor(Math.random() * type.length);
+     return type[randomNum];
+}
+
+
+
 let changeableLibs = [];
 let tempVar = "";
 let tempVar2 = "";
