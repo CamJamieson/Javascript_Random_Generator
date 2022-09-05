@@ -22,6 +22,7 @@ let changeableLibs = [];
 let tempVar = "";
 let tempVar2 = "";
 let tempVar3 = "";
+let tempVar4 = "";
 
 
 //Loop to go through entire word array
@@ -57,24 +58,24 @@ for (let a = 0; a < madLibsArray.length; a++){
                     //console.log("TEMPVAR2:" + tempVar2)
 
                     if(tempVar2 === "noun"){
-                        changeableLibs.push(randomWord(noun));
+                        tempVar4 = randomWord(noun);
                     } else if(tempVar2 === "adjective"){
-                        changeableLibs.push(randomWord(adjective));
+                        tempVar4 = randomWord(adjective);
                     } else if(tempVar2 === "verb"){
-                        changeableLibs.push(randomWord(verb));
+                        tempVar4 = randomWord(verb);
                     } else if(tempVar2 === "adverb"){
-                        changeableLibs.push(randomWord(adverb));
+                        tempVar4 = randomWord(adverb);
                     } else if(tempVar2 === "plural-noun"){
-                        changeableLibs.push(randomWord(pluralNoun));
+                        tempVar4 = randomWord(pluralNoun);
                     } else if(tempVar2 === "part-of-the-body"){
-                        changeableLibs.push(randomWord(partOfTheBody));
+                        tempVar4 = randomWord(partOfTheBody);
                     } else{changeableLibs.push("ERROR");}
 
 
                     for(let c = b+1; c < tempVar.length; c++){
-                        tempVar2 += tempVar[c];
+                        tempVar4 += tempVar[c];
                     }
-                    
+                    changeableLibs.push(tempVar4)
                 }
             }
         }
