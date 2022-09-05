@@ -82,7 +82,9 @@ for (let a = 0; a < madLibsArray.length; a++){
         
         
     }
+    else{changeableLibs.push(tempVar);}
 
 }
 
-console.log(changeableLibs);
+let finishedMadLib = changeableLibs.join(' ');
+console.log(finishedMadLib);
