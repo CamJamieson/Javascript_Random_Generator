@@ -8,7 +8,7 @@ let partOfTheBody = ["arm", "limb", "leg", "hand", "finger"];
 let myMadLibs = `Ye can always pretend to be a bloodthirsty (noun), threatening everyone by waving yer (adjective) sword in the air, but until ye learn to (verb) like a pirate, ye'll never be (adverb) accepted as an authentic (noun). So here's what ye do: Cleverly work into yer daily converations (adjective) pirate phrases such as "Ahoy there, (plural-noun)", "Avast, ye (plural-noun)", and "Shiver me (plural-noun)". Remember to drop all yer gs when ye say such words as sailin', splittin', and fightin'. This will give ye a/an (part-of-the-body) start to being recognized as a swashbucklin' (noun). Once ye have the lingo down pat, it helps to wear a three-cornered (noun) on yer head, stash a/an (noun) in yer pants, and keep a/an (noun) perched atop yer (part-of-the-body). Aye, now ye be a real pirate!`;
 
 let madLibsArray = myMadLibs.split(' ');
-console.log(madLibsArray);
+//console.log(madLibsArray);
 
 
 function randomWord(type){
@@ -21,22 +21,60 @@ function randomWord(type){
 let changeableLibs = [];
 let tempVar = "";
 let tempVar2 = "";
+let tempVar3 = "";
+
+
+//Loop to go through entire word array
 for (let a = 0; a < madLibsArray.length; a++){
-    console.log(madLibsArray[a]);
+    //console.log(madLibsArray[a]);
     tempVar = madLibsArray[a];
+    //checks if there is the bracket indicating a fill in the blank
     if(tempVar[0] === "("){
+        //checks the place that the close bracket is
         for(let b = 1; b < tempVar.length; b++){
             if(tempVar[b] === ")"){
                 if(b === tempVar.length - 1){
-                    changeableLibs.push(tempVar);
+                    tempVar3 = tempVar.slice(1,b);
+                    //console.log("TEMPVAR3:" + tempVar3)
+                    if(tempVar3 === "noun"){
+                        changeableLibs.push(randomWord(noun));
+                    } else if(tempVar3 === "adjective"){
+                        changeableLibs.push(randomWord(adjective));
+                    } else if(tempVar3 === "verb"){
+                        changeableLibs.push(randomWord(verb));
+                    } else if(tempVar3 === "adverb"){
+                        changeableLibs.push(randomWord(adverb));
+                    } else if(tempVar3 === "plural-noun"){
+                        changeableLibs.push(randomWord(pluralNoun));
+                    } else if(tempVar3 === "part-of-the-body"){
+                        changeableLibs.push(randomWord(partOfTheBody));
+                    } else{changeableLibs.push("ERROR");}
                 }
+                
+                
                 else{
-                    tempVar2 = tempVar.slice(0, b+1);
+                    tempVar2 = tempVar.slice(1, b);
+                    //console.log("TEMPVAR2:" + tempVar2)
+
+                    if(tempVar2 === "noun"){
+                        changeableLibs.push(randomWord(noun));
+                    } else if(tempVar2 === "adjective"){
+                        changeableLibs.push(randomWord(adjective));
+                    } else if(tempVar2 === "verb"){
+                        changeableLibs.push(randomWord(verb));
+                    } else if(tempVar2 === "adverb"){
+                        changeableLibs.push(randomWord(adverb));
+                    } else if(tempVar2 === "plural-noun"){
+                        changeableLibs.push(randomWord(pluralNoun));
+                    } else if(tempVar2 === "part-of-the-body"){
+                        changeableLibs.push(randomWord(partOfTheBody));
+                    } else{changeableLibs.push("ERROR");}
+
+
                     for(let c = b+1; c < tempVar.length; c++){
                         tempVar2 += tempVar[c];
                     }
                     
-                    changeableLibs.push(tempVar2);
                 }
             }
         }
