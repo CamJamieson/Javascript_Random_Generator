@@ -13,12 +13,28 @@ console.log(madLibsArray);
 
 let changeableLibs = [];
 let tempVar = "";
-
+let tempVar2 = "";
 for (let a = 0; a < madLibsArray.length; a++){
     console.log(madLibsArray[a]);
     tempVar = madLibsArray[a];
     if(tempVar[0] === "("){
-        changeableLibs.push(tempVar)
+        for(let b = 1; b < tempVar.length; b++){
+            if(tempVar[b] === ")"){
+                if(b === tempVar.length - 1){
+                    changeableLibs.push(tempVar);
+                }
+                else{
+                    tempVar2 = tempVar.slice(0, b+1);
+                    for(let c = b+1; c < tempVar.length; c++){
+                        tempVar2 += tempVar[c];
+                    }
+                    
+                    changeableLibs.push(tempVar2);
+                }
+            }
+        }
+        
+        
     }
 
 }
